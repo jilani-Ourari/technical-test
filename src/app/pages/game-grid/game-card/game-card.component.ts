@@ -18,6 +18,9 @@ export class GameCardComponent implements OnInit {
       );
     });
   }
+  get isJackpot(): boolean {
+    return this.categorie === 'jackpot';
+  }
 
   constructor() {}
 

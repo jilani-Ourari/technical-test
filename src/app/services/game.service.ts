@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, filter, map } from 'rxjs';
+import { BehaviorSubject, filter, map, mergeMap, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Game } from '../models/game.model';
+import { Game, Jackpot } from '../models/game.model';
 @Injectable({ providedIn: 'root' })
 export class GameService {
   selectedGameCategory: BehaviorSubject<string> = new BehaviorSubject<string>(
@@ -23,6 +23,34 @@ export class GameService {
               : game.categories.includes(category)
           )
         )
+      );
+  }
+
+  getAllGames() {
+    return this.http.get<Game[]>(
+      `http://stage.whgstage.com/front-end-test/games.php`
+    );
+  }
+  getJackpotGames() {
+    return this.http
+      .get<Jackpot[]>('http://stage.whgstage.com/front-end-test/jackpots.php')
+      .pipe(
+        mergeMap((jackpot) =>
+          this.getAllGames().pipe(
+            map((games) =>
+              games.filter((game) =>
+                jackpot.some((jackpot) => jackpot.game === game.id)
+              )
+            ),
+            map((games) =>
+              games.map((game) => ({
+                ...game,
+                amount: jackpot.find((j) => j.game === game.id)?.amount,
+              }))
+            )
+          )
+        ),
+        tap((games) => console.log(games))
       );
   }
 }

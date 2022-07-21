@@ -6,7 +6,11 @@
     <span>{{ getRibbonLabel() }}</span>
   </div>
 
-  <div class="content card-body">
+  <div class="content card-body p-0">
+    <div class="d-flex justify-content-center mb-1 amount p-1">
+      <h5 class="" *ngIf="isJackpot">{{ game?.amount }}</h5>
+    </div>
+
     <div class="content-details">
       <h6>{{ game.name }}</h6>
       <button class="btn btn-primary">Play</button>

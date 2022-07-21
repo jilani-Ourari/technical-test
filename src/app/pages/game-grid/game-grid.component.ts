@@ -15,6 +15,12 @@ export class GameGridComponent implements OnInit {
   ngOnInit(): void {
     this.gameService.selectedGameCategory.subscribe((category) => {
       this.categorie = category;
+      if (this.categorie === 'jackpot') {
+        this.gameService.getJackpotGames().subscribe((games) => {
+          this.games = games;
+        });
+        return;
+      }
       this.gameService.getGames(category).subscribe((games) => {
         this.games = games;
       });

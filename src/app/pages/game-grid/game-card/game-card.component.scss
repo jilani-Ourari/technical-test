@@ -15,6 +15,7 @@
   margin: auto;
   overflow: hidden;
   transition: background-color 0.2s ease-in-out;
+  border-radius: 0.8rem;
   &:hover {
     background-color: rgba(0, 0, 0, 0.5);
   }
@@ -35,6 +36,8 @@
   -webkit-transition: all 0.3s ease-in-out 0s;
   -moz-transition: all 0.3s ease-in-out 0s;
   transition: all 0.3s ease-in-out 0s;
+  z-index: 5;
+
   h6 {
     color: white;
     font-weight: 500;
@@ -170,4 +173,11 @@
   position: absolute;
   top: 100px;
   left: 1000px;
+}
+.amount {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0;
+  color: var(--success);
+  border-top-right-radius: 0.8rem;
+  border-top-left-radius: 0.8rem;
 }
