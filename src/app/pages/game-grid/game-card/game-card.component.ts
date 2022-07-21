@@ -11,8 +11,6 @@ export class GameCardComponent implements OnInit {
 
   @Input() categorie!: string;
   get isRiboon(): boolean {
-    console.log(this.categorie);
-
     return !!this.game.categories.some((cat) => {
       return (
         ('new' === cat && this.categorie !== 'new') ||

@@ -17,7 +17,6 @@ export class GameGridComponent implements OnInit {
       this.categorie = category;
       this.gameService.getGames(category).subscribe((games) => {
         this.games = games;
-        console.log(games);
       });
     });
   }

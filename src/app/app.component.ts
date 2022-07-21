@@ -8,11 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'technical-test';
 
-  constructor() {
-    console.log('AppComponent constructor');
-  }
+  constructor() {}
 
-  ngOnInit() {
-    console.log('AppComponent ngOnInit');
-  }
+  ngOnInit() {}
 }
