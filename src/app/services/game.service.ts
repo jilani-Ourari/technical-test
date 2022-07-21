@@ -14,7 +14,15 @@ export class GameService {
     return this.http
       .get<Game[]>(`http://stage.whgstage.com/front-end-test/games.php`)
       .pipe(
-        map((game) => game.filter((game) => game.categories.includes(category)))
+        map((game) =>
+          game.filter((game) =>
+            category === 'other'
+              ? game.categories.some((cat) =>
+                  ['ball', 'virtual', 'fun'].includes(cat)
+                )
+              : game.categories.includes(category)
+          )
+        )
       );
   }
 }
