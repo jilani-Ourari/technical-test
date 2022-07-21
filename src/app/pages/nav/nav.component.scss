@@ -22,3 +22,12 @@
     text-decoration: none;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .container {
+    justify-content: flex-start;
+  }
+  .navbar-toggler-icon {
+    background-color: white;
+  }
+}
