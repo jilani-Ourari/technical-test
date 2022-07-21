@@ -8,9 +8,25 @@ import { Game } from 'src/app/models/game.model';
 })
 export class GameCardComponent implements OnInit {
   @Input() game!: Game;
+
+  @Input() categorie!: string;
+  get isRiboon(): boolean {
+    console.log(this.categorie);
+
+    return !!this.game.categories.some((cat) => {
+      return (
+        ('new' === cat && this.categorie !== 'new') ||
+        ('top' === cat && this.categorie !== 'top')
+      );
+    });
+  }
+
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.game);
+  ngOnInit(): void {}
+  getRibbonLabel(): string {
+    return this.game.categories.includes('new') && this.categorie !== 'new'
+      ? 'New'
+      : 'Top';
   }
 }

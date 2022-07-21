@@ -9,11 +9,12 @@ import { GameService } from 'src/app/services/game.service';
 })
 export class GameGridComponent implements OnInit {
   games: Game[] = [];
-
+  categorie: string = '';
   constructor(private readonly gameService: GameService) {}
 
   ngOnInit(): void {
     this.gameService.selectedGameCategory.subscribe((category) => {
+      this.categorie = category;
       this.gameService.getGames(category).subscribe((games) => {
         this.games = games;
         console.log(games);

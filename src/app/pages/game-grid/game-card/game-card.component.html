@@ -2,6 +2,10 @@
   class="card background-img"
   [ngStyle]="{ 'background-image': 'url(' + game.image + ')' }"
 >
+  <div *ngIf="isRiboon" class="ribbon">
+    <span>{{ getRibbonLabel() }}</span>
+  </div>
+
   <div class="content card-body">
     <div class="content-details">
       <h6>{{ game.name }}</h6>
