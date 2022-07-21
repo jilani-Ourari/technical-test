@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg container p-0">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav d-flex w-100 justify-content-between">
+      <li
+        *ngFor="let navItem of navbarElements"
+        class="nav-item cursor-pointer p-2"
+        [ngClass]="{ active: navItem === selectedNavItem }"
+        (click)="selectNavItem(navItem)"
+      >
+        <a class="nav-link">{{ navItem.label }} </a>
+      </li>
+    </ul>
+  </div>
+</nav>

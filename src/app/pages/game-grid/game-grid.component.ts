@@ -1,0 +1,23 @@
+import { Component, OnInit } from '@angular/core';
+import { Game } from 'src/app/models/game.model';
+import { GameService } from 'src/app/services/game.service';
+
+@Component({
+  selector: 'app-game-grid',
+  templateUrl: './game-grid.component.html',
+  styleUrls: ['./game-grid.component.scss'],
+})
+export class GameGridComponent implements OnInit {
+  games: Game[] = [];
+
+  constructor(private readonly gameService: GameService) {}
+
+  ngOnInit(): void {
+    this.gameService.selectedGameCategory.subscribe((category) => {
+      this.gameService.getGames(category).subscribe((games) => {
+        this.games = games;
+        console.log(games);
+      });
+    });
+  }
+}

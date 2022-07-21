@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--secondary);
+  color: var(--info);
+  justify-content: space-around;
+  align-items: center;
+  padding: 1%;
+  max-width: 100%;
+  width: 100%;
+
+  .nav-item {
+    &.active {
+      background-color: var(--primary);
+    }
+  }
+
+  .nav-link {
+    color: var(--info);
+    font-size: 1.5rem;
+    font-weight: 350;
+    text-decoration: none;
+  }
+}

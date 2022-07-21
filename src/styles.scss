@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+:root {
+  --primary: #8dc63f;
+  --secondary: #373737;
+  --success: #ffffff;
+  --info: #fcfcfc;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+body {
+}
