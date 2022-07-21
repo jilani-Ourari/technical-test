@@ -22,8 +22,8 @@ export const NAV_ROUTES: NavElement[] = [
     name: 'live',
   },
   {
-    label: 'Blacjack',
-    name: 'blacjack',
+    label: 'Blackjack',
+    name: 'blackjack',
   },
   {
     label: 'Roulette',

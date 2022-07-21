@@ -10,7 +10,7 @@ export class GameCardComponent implements OnInit {
   @Input() game!: Game;
 
   @Input() categorie!: string;
-  get isRiboon(): boolean {
+  get isRibbon(): boolean {
     return !!this.game.categories.some((cat) => {
       return (
         ('new' === cat && this.categorie !== 'new') ||

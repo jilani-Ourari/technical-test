@@ -11,8 +11,7 @@ export class GameGridComponent implements OnInit {
   games: Game[] = [];
   categorie: string = '';
   constructor(private readonly gameService: GameService) {}
-
-  ngOnInit(): void {
+  loadGames(): void {
     this.gameService.selectedGameCategory.subscribe((category) => {
       this.categorie = category;
       if (this.categorie === 'jackpot') {
@@ -25,5 +24,9 @@ export class GameGridComponent implements OnInit {
         this.games = games;
       });
     });
+  }
+
+  ngOnInit(): void {
+    this.loadGames();
   }
 }
